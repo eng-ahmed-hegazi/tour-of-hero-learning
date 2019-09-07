@@ -1,0 +1,44 @@
+<!--Display All Heroes-->
+<h2>My Heroes</h2>
+<ul class="heroes">
+
+  <!--*ngFor --] Structure Directive-->
+  <!--(Event)="functionName(phar)" --] Event Binding-->
+  <!--[class.selected]="condition" --] Class Binding-->
+
+
+<!--
+  <li *ngFor="let hero of heroes"
+      (click)="onSelect(hero)"
+      [class.selected]="hero === selectedHero">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+  -->
+
+  <!--if you click on hero it route you to details -->
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>
+<!--Display Form With Binding-->
+
+<!--*ngIf --] Structure Directive-->
+<!--| uppercase --] Pipe -->
+<!--[(ngModel)] --] Tow way Data Binding-->
+<!--
+<div *ngIf="selectedHero">
+  <h2>{{ selectedHero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{selectedHero.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedHero.name" placeholder="name">
+    </label>
+  </div>
+</div>
+-->
+
+<!--[hero]="selectedHero" [hero]mean input that passed value "selectedHero" -->
+<!--Send the Selected Hero to [hero] input -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
